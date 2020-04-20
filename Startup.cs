@@ -22,6 +22,8 @@ namespace soundroom
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseFileServer();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
