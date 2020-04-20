@@ -12,56 +12,56 @@
 <body>
     <div id="buttons">
         <div class="grid">
-            <span class="button" onclick="send('👏');">👏</span>
-            <span class="button" onclick="send('🥳');">🥳</span>
-            <span class="button" onclick="send('🤣');">🤣</span>
-            <span class="button" onclick="send('🥁');">🥁</span>
-            <span class="button" onclick="send('🏆');">🏆</span>
-            <span class="button" onclick="send('🤯');">🤯</span>
-            <span class="button" onclick="send('😮');">😮</span>
-            <span class="button" onclick="send('🤑');">🤑</span>
-            <span class="button" onclick="send('🥺');">🥺</span>
-            <span class="button" onclick="send('🤔');">🤔</span>
-            <span class="button" onclick="send('🤨');">🤨</span>
-            <span class="button" onclick="send('🥱');">🥱</span>
-            <span class="button" onclick="send('😈');">😈</span>
-            <span class="button" onclick="send('🤦');">🤦</span>
-            <span class="button" onclick="send('🤬');">🤬</span>
-            <span class="button" onclick="send('😱');">😱</span>
-            <span class="button" onclick="send('🦗');">🦗</span>
-            <span class="button" onclick="send('🦖');">🦖</span>
-            <span class="button" onclick="send('🧏');">🧏</span>
-            <span class="button" onclick="send('🤫');">🤫</span>
-            <span class="button" onclick="send('👍');">👍</span>
-            <span class="button" onclick="send('👎');">👎</span>
-            <span class="button" onclick="send('🙆');">🙆</span>
-            <span class="button" onclick="send('🙅');">🙅</span>
+            <span class="button" id="👏-button" onclick="send('👏');">👏</span>
+            <span class="button" id="🥳-button" onclick="send('🥳');">🥳</span>
+            <span class="button" id="🤣-button" onclick="send('🤣');">🤣</span>
+            <span class="button" id="🥁-button" onclick="send('🥁');">🥁</span>
+            <span class="button" id="🏆-button" onclick="send('🏆');">🏆</span>
+            <span class="button" id="🤯-button" onclick="send('🤯');">🤯</span>
+            <span class="button" id="😮-button" onclick="send('😮');">😮</span>
+            <span class="button" id="🤑-button" onclick="send('🤑');">🤑</span>
+            <span class="button" id="🥺-button" onclick="send('🥺');">🥺</span>
+            <span class="button" id="🤔-button" onclick="send('🤔');">🤔</span>
+            <span class="button" id="🤨-button" onclick="send('🤨');">🤨</span>
+            <span class="button" id="🥱-button" onclick="send('🥱');">🥱</span>
+            <span class="button" id="😈-button" onclick="send('😈');">😈</span>
+            <span class="button" id="🤦-button" onclick="send('🤦');">🤦</span>
+            <span class="button" id="🤬-button" onclick="send('🤬');">🤬</span>
+            <span class="button" id="😱-button" onclick="send('😱');">😱</span>
+            <span class="button" id="🦗-button" onclick="send('🦗');">🦗</span>
+            <span class="button" id="🦖-button" onclick="send('🦖');">🦖</span>
+            <span class="button" id="🧏-button" onclick="send('🧏');">🧏</span>
+            <span class="button" id="🤫-button" onclick="send('🤫');">🤫</span>
+            <span class="button" id="👍-button" onclick="send('👍');">👍</span>
+            <span class="button" id="👎-button" onclick="send('👎');">👎</span>
+            <span class="button" id="🙆-button" onclick="send('🙆');">🙆</span>
+            <span class="button" id="🙅-button" onclick="send('🙅');">🙅</span>
         </div>
     </div>
-    <audio id="👋" src="/audio/hello.mp3"></audio>
-    <audio id="👏" src="/audio/clap.mp3"></audio>
-    <audio id="🥳" src="/audio/party.mp3"></audio>
-    <audio id="🤣" src="/audio/laugh.mp3"></audio>
-    <audio id="🥁" src="/audio/drum.mp3"></audio>
-    <audio id="🏆" src="/audio/success.mp3"></audio>
-    <audio id="🤯" src="/audio/wow.mp3"></audio>
-    <audio id="😮" src="/audio/ooh.mp3"></audio>
-    <audio id="🤑" src="/audio/kaching.mp3"></audio>
-    <audio id="🥺" src="/audio/aww.mp3"></audio>
-    <audio id="🤔" src="/audio/hmm.mp3"></audio>
-    <audio id="🤨" src="/audio/huh.mp3"></audio>
-    <audio id="🥱" src="/audio/yawn.mp3"></audio>
-    <audio id="😈" src="/audio/evil.mp3"></audio>
-    <audio id="🤦" src="/audio/facepalm.mp3"></audio>
-    <audio id="🤬" src="/audio/boo.mp3"></audio>
-    <audio id="😱" src="/audio/scream.mp3"></audio>
-    <audio id="🦗" src="/audio/cricket.mp3"></audio>
-    <audio id="🦖" src="/audio/dinosaur.mp3"></audio>
-    <audio id="🧏" src="/audio/louder.mp3"></audio>
-    <audio id="🤫" src="/audio/ssh.mp3"></audio>
-    <audio id="👍" src="/audio/yes.mp3"></audio>
-    <audio id="👎" src="/audio/no.mp3"></audio>
-    <audio id="🙆" src="/audio/right.mp3"></audio>
-    <audio id="🙅" src="/audio/wrong.mp3"></audio>
+    <audio id="👋-player" src="/audio/hello.mp3"></audio>
+    <audio id="👏-player" src="/audio/clap.mp3"></audio>
+    <audio id="🥳-player" src="/audio/party.mp3"></audio>
+    <audio id="🤣-player" src="/audio/laugh.mp3"></audio>
+    <audio id="🥁-player" src="/audio/drum.mp3"></audio>
+    <audio id="🏆-player" src="/audio/success.mp3"></audio>
+    <audio id="🤯-player" src="/audio/wow.mp3"></audio>
+    <audio id="😮-player" src="/audio/ooh.mp3"></audio>
+    <audio id="🤑-player" src="/audio/kaching.mp3"></audio>
+    <audio id="🥺-player" src="/audio/aww.mp3"></audio>
+    <audio id="🤔-player" src="/audio/hmm.mp3"></audio>
+    <audio id="🤨-player" src="/audio/huh.mp3"></audio>
+    <audio id="🥱-player" src="/audio/yawn.mp3"></audio>
+    <audio id="😈-player" src="/audio/evil.mp3"></audio>
+    <audio id="🤦-player" src="/audio/facepalm.mp3"></audio>
+    <audio id="🤬-player" src="/audio/boo.mp3"></audio>
+    <audio id="😱-player" src="/audio/scream.mp3"></audio>
+    <audio id="🦗-player" src="/audio/cricket.mp3"></audio>
+    <audio id="🦖-player" src="/audio/dinosaur.mp3"></audio>
+    <audio id="🧏-player" src="/audio/louder.mp3"></audio>
+    <audio id="🤫-player" src="/audio/ssh.mp3"></audio>
+    <audio id="👍-player" src="/audio/yes.mp3"></audio>
+    <audio id="👎-player" src="/audio/no.mp3"></audio>
+    <audio id="🙆-player" src="/audio/right.mp3"></audio>
+    <audio id="🙅-player" src="/audio/wrong.mp3"></audio>
 </body>
 </html>

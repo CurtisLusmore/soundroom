@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .build();
         connection.on('play', function (action) {
             console.log(action);
-            document.getElementById(action).play();
+            document.getElementById(`${action}-player`).play();
+            document.getElementById(`${action}-button`).bounce();
         });
         connection.on('join', function () {
             console.log('Somebody joined');
-            document.getElementById('👋').play();
         });
 
     connection
@@ -33,4 +33,11 @@ function send(action) {
 
 function join() {
     connection.invoke('join', room);
+}
+
+HTMLElement.prototype.bounce = function () {
+    const classes = this.classList;
+    classes.add('bounce');
+    clearTimeout(this.bouncer);
+    this.bouncer = setTimeout(function () { classes.remove('bounce'); }, 500);
 }
