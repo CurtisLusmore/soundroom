@@ -7,7 +7,7 @@ const bounce = function (elem) {
   elem.bouncer = setTimeout(function () { elem.classList.remove('bounce'); }, 500);
 };
 
-const Button = function ({ icon, src }) {
+const Button = function ({ icon, src, alt }) {
   return <ConnectionContext.Consumer>{function (connection) {
     const button = React.createRef();
     const audio = React.createRef();
@@ -16,7 +16,9 @@ const Button = function ({ icon, src }) {
       audio.current.play();
     });
     return <>
-      <span ref={button} class="button" id={`${icon}-button`} onClick={() => connection.send(icon)}>{icon}</span>
+      <span ref={button} class="button" id={`${icon}-button`}
+        title={alt} aria-title={alt}
+        onClick={() => connection.send(icon)}>{icon}</span>
       <audio ref={audio} id={`${icon}-player`} src={src}></audio>
     </>;
   }}</ConnectionContext.Consumer>
