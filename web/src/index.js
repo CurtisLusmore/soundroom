@@ -7,7 +7,7 @@ import Connection from './Connection';
 const connection = new Connection();
 
 const roomState = {
-  get() { return window.location.hash || ''; },
+  get() { return window.location.hash.substr(1) || ''; },
   set(value) { window.location.hash = value; }
 };
 
