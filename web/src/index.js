@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import Connection from './Connection';
 
-const params = new URLSearchParams(window.location.search);
-const room = params.get('room') || '🌏';
-const connection = new Connection({ room });
+const connection = new Connection();
+
+const roomState = {
+  get() { return window.location.hash || ''; },
+  set(value) { window.location.hash = value; }
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App connection={connection} />
+    <App roomState={roomState} connection={connection} />
   </React.StrictMode>,
   document.getElementById('root')
 );

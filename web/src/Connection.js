@@ -1,18 +1,15 @@
 import { HubConnectionBuilder } from '@microsoft/signalr';
 
 class Connection {
-  constructor(props) {
-    this.props = props;
+  constructor() {
     this.playHandlers = {};
     this.connectingHandler = () => {};
     this.connectedHandler = () => {};
     this.disconnectedHandler = () => {};
-
-    // this.connect();
   }
 
   send(fx) {
-    this.connection.invoke('send', this.props.room, fx);
+    this.connection.invoke('send', this.room, fx);
   }
 
   onPlay(action, callback) {
@@ -31,8 +28,10 @@ class Connection {
     this.disconnectedHandler = callback;
   }
 
-  connect() {
+  connect(room) {
     this.connectingHandler();
+
+    this.room = room;
     this.connection = new HubConnectionBuilder()
       .withUrl('/sound')
       .build();
@@ -48,7 +47,7 @@ class Connection {
       .start()
       .then(() => {
         this.connectedHandler();
-        this.connection.invoke('join', this.props.room)
+        this.connection.invoke('join', room)
       }).catch(error => {
         console.error('Failed to connect', error.message);
         this.disconnectedHandler();

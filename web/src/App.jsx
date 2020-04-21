@@ -18,13 +18,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { connection } = this.props;
+    const { connection, roomState } = this.props;
     const { status } = this.state;
     return <ConnectionContext.Provider value={connection}>
       {
         status === 'connected'
           ? <SoundBoard />
-          : <ConnectionStatus status={status} />
+          : <ConnectionStatus roomState={roomState} status={status} />
       }      
     </ConnectionContext.Provider>;
   }
