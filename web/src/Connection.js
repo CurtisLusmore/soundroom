@@ -2,9 +2,37 @@ import { HubConnectionBuilder } from '@microsoft/signalr';
 
 class Connection {
   constructor(props) {
-    this.playHandlers = {};
     this.props = props;
+    this.playHandlers = {};
+    this.connectingHandler = () => {};
+    this.connectedHandler = () => {};
+    this.disconnectedHandler = () => {};
 
+    // this.connect();
+  }
+
+  send(fx) {
+    this.connection.invoke('send', this.props.room, fx);
+  }
+
+  onPlay(action, callback) {
+    this.playHandlers[action] = callback;
+  }
+
+  onConnected(callback) {
+    this.connectedHandler = callback;
+  }
+
+  onConnecting(callback) {
+    this.connectingHandler = callback;
+  }
+
+  onDisconnect(callback) {
+    this.disconnectedHandler = callback;
+  }
+
+  connect() {
+    this.connectingHandler();
     this.connection = new HubConnectionBuilder()
       .withUrl('/sound')
       .build();
@@ -14,25 +42,17 @@ class Connection {
       console.log('Playing', fx);
       this.playHandlers[fx]();
     });
+    this.connection.onclose(this.disconnectedHandler);
 
-    const that = this;
     this.connection
       .start()
-      .then(function () {
-        console.log('Connection started');
-        that.connection.invoke('join', that.props.room);
-      })
-      .catch(error => {
+      .then(() => {
+        this.connectedHandler();
+        this.connection.invoke('join', this.props.room)
+      }).catch(error => {
         console.error('Failed to connect', error.message);
+        this.disconnectedHandler();
       });
-  }
-
-  send(fx) {
-    this.connection.invoke('send', this.props.room, fx);
-  }
-
-  onPlay(action, callback) {
-    this.playHandlers[action] = callback;
   }
 }
 

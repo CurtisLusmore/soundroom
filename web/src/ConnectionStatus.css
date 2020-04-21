@@ -1,0 +1,21 @@
+.status {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.status p {
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+.status p.button {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 300px) { .status { font-size: 3em; } }
+@media screen and (min-width: 500px) { .status { font-size: 4em; } }
+@media screen and (min-width: 1050px) { .status { font-size: 5em; } }
