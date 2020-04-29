@@ -31,7 +31,7 @@ class Connection {
   connect(room) {
     this.connectingHandler();
 
-    this.room = room;
+    this.room = room || '%DEFAULT%';
     this.connection = new HubConnectionBuilder()
       .withUrl('/sound')
       .build();
@@ -47,7 +47,7 @@ class Connection {
       .start()
       .then(() => {
         this.connectedHandler();
-        this.connection.invoke('join', room)
+        this.connection.invoke('join', this.room)
       }).catch(error => {
         console.error('Failed to connect', error.message);
         this.disconnectedHandler();

@@ -16,9 +16,9 @@ const Button = function ({ icon, src, alt }) {
       audio.current.play();
     });
     return <>
-      <span ref={button} class="button" id={`${icon}-button`}
+      <button ref={button} class="button" id={`${icon}-button`}
         title={alt} aria-title={alt}
-        onClick={() => connection.send(icon)}>{icon}</span>
+        onClick={() => connection.send(icon)}>{icon}</button>
       <audio ref={audio} id={`${icon}-player`} src={src}></audio>
     </>;
   }}</ConnectionContext.Consumer>
